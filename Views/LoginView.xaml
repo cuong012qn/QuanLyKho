@@ -1,0 +1,53 @@
+﻿<Window x:Class="QuanLyKho_MVVM.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyKho_MVVM.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        DataContext="{StaticResource LoginVM}"
+        Title="Đăng nhập" Height="450" Width="800"
+        Name="loginView" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Border BorderBrush="CornflowerBlue" BorderThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <StackPanel Margin="5 0 5 5">
+                    <TextBlock Text="Tên đăng nhập" FontSize="20"></TextBlock>
+                    <TextBox Width="300" FontSize="20"
+                             ToolTip="Nhập tên đăng nhập"
+                             Text="{Binding Username}"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="5 0 5 5">
+                    <TextBlock Text="Mật khẩu" FontSize="20" ></TextBlock>
+                    <PasswordBox x:Name="PwbMatKhau" Width="300" FontSize="20"
+                             ToolTip="Nhập mật khẩu">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PasswordChanged">
+                                <i:InvokeCommandAction Command="{Binding PasswordBoxCommand}" 
+                                   CommandParameter="{Binding ElementName=PwbMatKhau}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </PasswordBox>
+                </StackPanel>
+                <Grid Height="75">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Đăng nhập" IsDefault="True"
+                            Command="{Binding LoginCommand}" 
+                            CommandParameter="{Binding ElementName=loginView}" 
+                            FontSize="20"
+                            Height="50" Margin="5 0 5 0"></Button>
+                    <Button Content="Thoát" 
+                            Command="{Binding ExitCommand}" 
+                            CommandParameter="{Binding ElementName=loginView}" 
+                            Grid.Column="1" FontSize="20"
+                            Height="50" Margin="5 0 5 0"></Button>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

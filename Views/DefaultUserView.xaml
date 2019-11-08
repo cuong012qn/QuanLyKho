@@ -1,0 +1,70 @@
+﻿<Window x:Class="QuanLyKho_MVVM.Views.ChangeInfoNUserView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:QuanLyKho_MVVM.Views"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        DataContext="{StaticResource DefalutUserVM}"
+        Name="NUserVM"
+        FontSize="20"
+        Title="Thay đổi thông tin" Height="500" Width="800">
+    <Grid>
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="2" BorderBrush="CornflowerBlue">
+            <StackPanel Width="500">
+                <Grid>
+                    <GroupBox Header="Sửa thông tin" Margin="5">
+                        <StackPanel>
+                            <StackPanel>
+                                <TextBlock Text="Tên hiển thị"></TextBlock>
+                                <TextBox Text="{Binding DisplayName}"></TextBox>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Text="Tên đăng nhập"></TextBlock>
+                                <TextBox Text="{Binding UserName}" IsEnabled="False"></TextBox>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Text="Mật khẩu cũ"></TextBlock>
+                                <PasswordBox x:Name="PwbOldPassword">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PasswordChanged">
+                                            <i:InvokeCommandAction Command="{Binding OldPasswordCommand}" 
+                                                CommandParameter="{Binding ElementName=PwbOldPassword}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </PasswordBox>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Text="Mật khẩu mới"></TextBlock>
+                                <PasswordBox x:Name="PwbNewPassword">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PasswordChanged">
+                                            <i:InvokeCommandAction Command="{Binding NewPasswordCommand}" 
+                                                CommandParameter="{Binding ElementName=PwbNewPassword}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </PasswordBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Xác nhận" Margin="5" Height="50" 
+                            Command="{Binding EditCommand}"
+                            FontSize="20"
+                            ></Button>
+                    <Button Content="Thoát" Grid.Column="1" Margin="5" Height="50"
+                            FontSize="20"
+                            Command="{Binding ExitCommand}"
+                            CommandParameter="{Binding ElementName=NUserVM}"></Button>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
