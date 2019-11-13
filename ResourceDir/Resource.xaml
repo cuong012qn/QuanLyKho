@@ -10,4 +10,5 @@
     <ViewModels:UnitViewModel x:Key="UnitVM"></ViewModels:UnitViewModel>
     <ViewModels:CustomerViewModel x:Key="CustomerVM"></ViewModels:CustomerViewModel>
     <ViewModels:UserAdminViewModel x:Key="AdminVM"></ViewModels:UserAdminViewModel>
+    <ViewModels:OutputViewModel x:Key="OutputVM"></ViewModels:OutputViewModel>
 </ResourceDictionary>

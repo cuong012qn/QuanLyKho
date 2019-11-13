@@ -60,8 +60,6 @@ namespace QuanLyKho_MVVM.ViewModels
 
         public SupplierViewModel()
         {
-            ListSuppliers = new ObservableCollection<Supplier>(DataProvider.Instance.DB.Suppliers);
-
             EditCommand = new RelayCommand<object>((p) =>
             {
                 if (SelectedSupplier != null) return true;
@@ -131,6 +129,7 @@ namespace QuanLyKho_MVVM.ViewModels
 
             LoadedCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
+                ListSuppliers = new ObservableCollection<Supplier>(DataProvider.Instance.DB.Suppliers);
                 SelectedSupplier = null;
                 DisplayName = null;
                 Address = null;

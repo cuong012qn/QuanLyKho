@@ -59,9 +59,9 @@ namespace QuanLyKho_MVVM.ViewModels
 
         public ObjectViewModel()
         {
-            ListObject = new ObservableCollection<Object>(DataProvider.Instance.DB.Objects);
             LoadedCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
+                ListObject = new ObservableCollection<Object>(DataProvider.Instance.DB.Objects);
                 ListUnit = new ObservableCollection<Unit>(DataProvider.Instance.DB.Units);
                 ListSupplier = new ObservableCollection<Supplier>(DataProvider.Instance.DB.Suppliers);
             });

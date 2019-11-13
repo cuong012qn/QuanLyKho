@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace QuanLyKho_MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for InputView.xaml
+    /// Interaction logic for ExportBillView.xaml
     /// </summary>
-    public partial class InputView : Window
+    public partial class ExportBillView : Window
     {
-        public InputView()
+        public ExportBillView()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

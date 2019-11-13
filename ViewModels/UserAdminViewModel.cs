@@ -101,8 +101,6 @@ namespace QuanLyKho_MVVM.ViewModels
 
         public UserAdminViewModel()
         {
-            ListUser = new ObservableCollection<User>(DataProvider.Instance.DB.Users);
-            ListUserRole = new ObservableCollection<UserRole>(DataProvider.Instance.DB.UserRoles);
             EditCommand = new RelayCommand<object>((p) =>
             {
                 if (SelectedItem != null) return true;
@@ -182,6 +180,8 @@ namespace QuanLyKho_MVVM.ViewModels
                 return true;
             }, (p) =>
             {
+                ListUser = new ObservableCollection<User>(DataProvider.Instance.DB.Users);
+                ListUserRole = new ObservableCollection<UserRole>(DataProvider.Instance.DB.UserRoles);
                 DisplayName = string.Empty;
                 Password = string.Empty;
                 UserName = string.Empty;

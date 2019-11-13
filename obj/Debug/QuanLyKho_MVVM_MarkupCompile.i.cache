@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\App.xaml
-101356763175
+121417338526
 21628168987
-38-199782429
+42-1917565970
 22-1236635942
-ResourceDir\Resource.xaml;Views\ObjectView.xaml;Views\SupplierView.xaml;Views\UnitView.xaml;Views\UserAdminView.xaml;Views\DefaultUserView.xaml;Views\CustomerView.xaml;Views\InputView.xaml;Views\LoginView.xaml;Views\MainView.xaml;
+ResourceDir\Resource.xaml;Views\ExportBillView.xaml;Views\ObjectView.xaml;Views\OutputView.xaml;Views\SupplierView.xaml;Views\UnitView.xaml;Views\UserAdminView.xaml;Views\DefaultUserView.xaml;Views\CustomerView.xaml;Views\InputView.xaml;Views\LoginView.xaml;Views\MainView.xaml;
 
-False
+True
 

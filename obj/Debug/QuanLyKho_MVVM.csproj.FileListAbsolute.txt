@@ -39,10 +39,14 @@ F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\UserAdminView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\UserAdminView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\DefaultUserView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\DefaultUserView.baml
-F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\QuanLyKho_MVVM.csprojAssemblyReference.cache
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\UnitView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\UnitView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\SupplierView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\SupplierView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\ObjectView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\ObjectView.baml
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\OutputView.g.cs
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\OutputView.baml
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\QuanLyKho_MVVM.csprojAssemblyReference.cache
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\ExportBillView.g.cs
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\ExportBillView.baml

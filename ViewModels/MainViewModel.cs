@@ -24,6 +24,7 @@ namespace QuanLyKho_MVVM.ViewModels
         public ICommand UnitCommand { get; set; }
         public ICommand SuplierCommand { get; set; }
         public ICommand ObjectCommand { get; set; }
+        public ICommand OutputCommand { get; set; }
         public string DisplayName
         {
             get => displayName;
@@ -83,6 +84,8 @@ namespace QuanLyKho_MVVM.ViewModels
             SuplierCommand = new RelayCommand<object>((p) => { return true; }, (p) => { SupplierView suplier = new SupplierView(); suplier.ShowDialog(); });
 
             ObjectCommand = new RelayCommand<object>((p) => { return true; }, (p) => { ObjectView objectView = new ObjectView(); objectView.ShowDialog(); });
+
+            OutputCommand = new RelayCommand<object>((p) => { return true; }, (p) => { OutputView outputview = new OutputView(); outputview.ShowDialog(); });
         }
     }
 }

@@ -45,6 +45,7 @@
                 </Button>
                 <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
                             Height="75" materialDesign:ButtonAssist.CornerRadius="5"
+                        Command="{Binding OutputCommand}"
                             ToolTip="Xuất kho" Margin="2"
                         Grid.Column="1" >
                     <TextBlock Text="Xuất kho" FontSize="20" />
