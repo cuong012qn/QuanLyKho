@@ -1,0 +1,41 @@
+﻿<Window x:Class="QuanLyKho_MVVM.Views.OutputBetaView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:uc="clr-namespace:QuanLyKho_MVVM.UC"
+        xmlns:local="clr-namespace:QuanLyKho_MVVM.Views"
+        mc:Ignorable="d"
+        FontSize="20"
+        Name="OutputVM" DataContext="{StaticResource OutputBetaVM}" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="Phiếu xuất kho" Height="450" Width="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
+                                   CommandParameter="{Binding ElementName=OutputVM}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <DockPanel>
+        <uc:UCBar DockPanel.Dock="Top" Tag="{Binding Title,ElementName=OutputVM}"></uc:UCBar>
+        <DataGrid Margin="5" ItemsSource="{Binding InputInfos}" CanUserSortColumns="True" CanUserAddRows="False"
+                    AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8"  materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding Object.DisplayName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Số lượng" Binding="{Binding Count}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Giá nhập" Binding="{Binding InputPrice}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Số bán" Binding="{Binding OutputPrice}" >
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Tình trạng" Binding="{Binding Status}" IsReadOnly="True">
+
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

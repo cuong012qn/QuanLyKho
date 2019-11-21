@@ -1,16 +1,17 @@
 ﻿using QuanLyKho_MVVM.Models;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using System.Linq;
 using Object = QuanLyKho_MVVM.Models.Object;
-using System.Globalization;
 
 namespace QuanLyKho_MVVM.ViewModels
 {
     class InputViewModel : BaseViewModel
     {
+        #region Private Properties
         private ObservableCollection<Object> _listObject;
         private ObservableCollection<InputInfo> _listInputInfos;
         private InputInfo _selectedInputInfo;
@@ -23,13 +24,18 @@ namespace QuanLyKho_MVVM.ViewModels
         private string _status;
         private DateTime? _dateInput;
         private string _search;
+        #endregion
 
-        public ObservableCollection<Object> ListObject { get => _listObject; set { _listObject = value; OnPropertyChanged(); } }
-        public ObservableCollection<InputInfo> ListInputInfos { get => _listInputInfos; set { _listInputInfos = value; OnPropertyChanged(); } }
+        #region Command
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand LoadedWindowCommand { get; set; }
+        #endregion
+
+        #region Public Properties
+        public ObservableCollection<Object> ListObject { get => _listObject; set { _listObject = value; OnPropertyChanged(); } }
+        public ObservableCollection<InputInfo> ListInputInfos { get => _listInputInfos; set { _listInputInfos = value; OnPropertyChanged(); } }
         public InputInfo SelectedInputInfo
         {
             get => _selectedInputInfo;
@@ -48,11 +54,13 @@ namespace QuanLyKho_MVVM.ViewModels
                 }
             }
         }
-
         public int? Count { get => _count; set { _count = value; OnPropertyChanged(); } }
         public double? InputPrice { get => _inputPrice; set { _inputPrice = value; OnPropertyChanged(); } }
         public double? OutputPrice { get => _outputPrice; set { _outputPrice = value; OnPropertyChanged(); } }
         public string Status { get => _status; set { _status = value; OnPropertyChanged(); } }
+        public string Search { get => _search; set { _search = value; OnPropertyChanged(); SearchObject(); } }
+        public int SumCount { get => _sumCount; set { _sumCount = value; OnPropertyChanged(); } }
+        public double SumInputPrice { get => _sumInputPrice; set { _sumInputPrice = value; OnPropertyChanged(); } }
         public DateTime? DateInput { get => _dateInput; set { _dateInput = value; OnPropertyChanged(); } }
         public Object SelectedObject
         {
@@ -62,18 +70,21 @@ namespace QuanLyKho_MVVM.ViewModels
             }
         }
 
-        public string Search { get => _search; set { _search = value; OnPropertyChanged(); SearchObject(); } }
-        public int SumCount { get => _sumCount; set { _sumCount = value; OnPropertyChanged(); } }
-
-        public double SumInputPrice { get => _sumInputPrice; set { _sumInputPrice = value; OnPropertyChanged(); } }
+        #endregion
 
         public InputViewModel()
         {
+            LoadCommand();
+        }
+
+        #region CoreFunction
+        void LoadCommand()
+        {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                ListInputInfos = new ObservableCollection<InputInfo>(DataProvider.Instance.DB.InputInfoes);
-                ListObject = new ObservableCollection<Object>(DataProvider.Instance.DB.Objects);
-                UpdateSumInputInfo();
+                LoadList();
+                //ListInputInfos = new ObservableCollection<InputInfo>(DataProvider.Instance.DB.InputInfoes);
+                //ListObject = new ObservableCollection<Object>(DataProvider.Instance.DB.Objects);
             });
 
             AddCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
@@ -83,6 +94,8 @@ namespace QuanLyKho_MVVM.ViewModels
                     Input input = new Input() { DateInput = DateInput, Id = Guid.NewGuid().ToString() };
                     DataProvider.Instance.DB.Inputs.Add(input);
 
+                    if (Count > 0) Status = "Còn hàng";
+                    else Status = "Hết hàng";
                     InputInfo inputinfo = new InputInfo()
                     {
                         Id = Guid.NewGuid().ToString(),
@@ -93,6 +106,7 @@ namespace QuanLyKho_MVVM.ViewModels
                         OutputPrice = OutputPrice,
                         Status = Status,
                     };
+
                     DataProvider.Instance.DB.InputInfoes.Add(inputinfo);
                     DataProvider.Instance.DB.SaveChanges();
                     ListInputInfos.Add(inputinfo);
@@ -143,6 +157,16 @@ namespace QuanLyKho_MVVM.ViewModels
             });
         }
 
+        async void LoadList()
+        {
+            await Task.Run(() =>
+            {
+                ListInputInfos = new ObservableCollection<InputInfo>(DataProvider.Instance.DB.InputInfoes);
+                ListObject = new ObservableCollection<Object>(DataProvider.Instance.DB.Objects);
+                UpdateSumInputInfo();
+            });
+        }
+
         void UpdateSumInputInfo()
         {
             foreach (InputInfo inputInfo in ListInputInfos)
@@ -159,5 +183,6 @@ namespace QuanLyKho_MVVM.ViewModels
 
             }
         }
+        #endregion
     }
 }

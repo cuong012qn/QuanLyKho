@@ -56,9 +56,14 @@ namespace QuanLyKho_MVVM.ViewModels
         public ICommand MouseWheelCommand { get; set; }
         #endregion
 
+        async void LoadList()
+        {
+            await Task.Run(() => { ListCustomers = new ObservableCollection<Customer>(DataProvider.Instance.DB.Customers); });
+        }
+
         public CustomerViewModel()
         {
-            ListCustomers = new ObservableCollection<Customer>(DataProvider.Instance.DB.Customers);
+
 
             EditCommand = new RelayCommand<object>((p) =>
             {

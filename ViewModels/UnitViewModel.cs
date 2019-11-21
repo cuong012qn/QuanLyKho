@@ -30,13 +30,26 @@ namespace QuanLyKho_MVVM.ViewModels
 
             }
         }
+
+        #region Command
         public ICommand EditCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand AddCommand { get; set; }
+        public ICommand LoadedWindowCommand { get; set; }
+        #endregion
 
         public UnitViewModel()
         {
-            ListUnit = new ObservableCollection<Unit>(DataProvider.Instance.DB.Units);
+            LoadCommand();
+        }
+
+        async void LoadList()
+        {
+            await Task.Run(() => { ListUnit = new ObservableCollection<Unit>(DataProvider.Instance.DB.Units); });
+        }
+
+        void LoadCommand()
+        {
 
             EditCommand = new RelayCommand<object>((p) =>
             {
@@ -111,16 +124,11 @@ namespace QuanLyKho_MVVM.ViewModels
                 }
             });
 
-            //LoadedCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
-            //{
-            //    SelectedCustomer = null;
-            //    DisplayName = null;
-            //    Address = null;
-            //    Phone = null;
-            //    Email = null;
-            //    MoreInfo = null;
-            //    ContractDate = null;
-            //});
+            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                LoadList();
+                SelectedUnit = null;
+            });
         }
     }
 }

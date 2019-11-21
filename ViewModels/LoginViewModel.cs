@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System;
+using MaterialDesignThemes.Wpf;
 
 namespace QuanLyKho_MVVM.ViewModels
 {
@@ -40,7 +41,6 @@ namespace QuanLyKho_MVVM.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public string DisplayName
         {
             get => displayName;

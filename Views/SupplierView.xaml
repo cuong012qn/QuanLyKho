@@ -4,13 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyKho_MVVM.Views"
+        xmlns:uc="clr-namespace:QuanLyKho_MVVM.UC"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         DataContext="{StaticResource SuplierVM}"
         FontSize="20"
-        Name="supplierView"
-        Title="Nhập thông tin nhà cung cấp" Height="700" Width="800"
+        Name="supplierView" ResizeMode="NoResize" WindowStyle="None"
+        Title="Thông tin nhà cung cấp" Height="700" Width="800"
         WindowStartupLocation="CenterScreen">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -18,9 +19,15 @@
                                    CommandParameter="{Binding ElementName=supplierView}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding AddCommand}" Key="F5"></KeyBinding>
+        <KeyBinding Command="{Binding EditCommand}" Key="F7"></KeyBinding>
+        <KeyBinding Command="{Binding DeleteCommand}" Key="F6"></KeyBinding>
+    </Window.InputBindings>
     <DockPanel>
+        <uc:UCBar DockPanel.Dock="Top" Tag="{Binding Title,ElementName=supplierView}"></uc:UCBar>
         <Border BorderBrush="CornflowerBlue" BorderThickness="2" Margin="5" DockPanel.Dock="Top">
-            <GroupBox Header="Nhập thông tin khách hàng">
+            <GroupBox Header="Nhập thông tin khách hàng" materialDesign:ColorZoneAssist.Mode="Light">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
@@ -42,18 +49,31 @@
                         </DatePicker>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 10 0 0">
-                        <Button Content="Thêm" FontSize="20" Height="50" Width="100" Margin="2" Command="{Binding AddCommand}"></Button>
-                        <Button Content="Xóa" FontSize="20" Height="50" Width="100" Margin="2" Command="{Binding DeleteCommand}"></Button>
-                        <Button Content="Sửa" FontSize="20" Height="50" Width="100" Margin="2" Command="{Binding EditCommand}"></Button>
+                        <Button Height="40" Width="115" Margin="2" Command="{Binding AddCommand}" Background="#FF49AEE8" BorderBrush="White" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Add" VerticalAlignment="Stretch" />
+                                <TextBlock>Thêm (F5)</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button Height="40" Width="115" Margin="2" Command="{Binding DeleteCommand}" Background="#FF49AEE8"  BorderBrush="White">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Stretch"/>
+                                <TextBlock Text="Xóa (F6)"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button Height="40" Width="115" Margin="2" Command="{Binding EditCommand}" Background="#FF49AEE8"  BorderBrush="White">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ModeEditOutline" VerticalAlignment="Stretch"/>
+                                <TextBlock Text="Sửa (F7)"></TextBlock>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </GroupBox>
         </Border>
         <Border Grid.Row="1" BorderBrush="CornflowerBlue" BorderThickness="2" Margin="5">
             <ScrollViewer Grid.Row="1" Margin="5" x:Name="scrollViewer">
-
                 <ListView ItemsSource="{Binding ListSuppliers, Mode=TwoWay}" SelectedItem="{Binding SelectedSupplier, Mode=OneWayToSource}">
-
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Họ tên" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>

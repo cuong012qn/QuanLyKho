@@ -7,16 +7,22 @@ using System.Windows;
 using System.Windows.Input;
 using QuanLyKho_MVVM.Views;
 using QuanLyKho_MVVM.Models;
+using System.Collections.ObjectModel;
+using MaterialDesignThemes.Wpf;
+using System.ComponentModel;
 
 namespace QuanLyKho_MVVM.ViewModels
 {
     class MainViewModel : BaseViewModel
     {
+        #region Private Properties
         private string displayName;
         private string userName;
         private int IdRole;
+        private ObservableCollection<InputInfo> _listInputInfos;
+        #endregion
 
-        public bool IsLoaded = false;
+        #region Command
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand InputCommand { get; set; }
         public ICommand CommandChangeInfoUser { get; set; }
@@ -25,6 +31,10 @@ namespace QuanLyKho_MVVM.ViewModels
         public ICommand SuplierCommand { get; set; }
         public ICommand ObjectCommand { get; set; }
         public ICommand OutputCommand { get; set; }
+        #endregion
+
+        #region Public Properties
+        public bool IsLoaded = false;
         public string DisplayName
         {
             get => displayName;
@@ -34,27 +44,46 @@ namespace QuanLyKho_MVVM.ViewModels
                 OnPropertyChanged();
             }
         }
+        public ObservableCollection<InputInfo> ListInputInfos { get => _listInputInfos; set { _listInputInfos = value; OnPropertyChanged(); } }
+        #endregion
 
         public MainViewModel()
         {
+            LoadCommand();
+        }
+
+        #region CoreFunction
+        async void LoadList()
+        {
+            await Task.Run(() => { ListInputInfos = new ObservableCollection<InputInfo>(DataProvider.Instance.DB.InputInfoes); });
+        }
+
+        void LoadCommand()
+        {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                p.Hide();
-                IsLoaded = true;
-                LoginView lView = new LoginView();
-                lView.ShowDialog();
+                if (!IsLoaded)
+                {
+                    p.Hide();
+                    LoginView lView = new LoginView();
+                    lView.ShowDialog();
+                    var loginVM = lView.DataContext as LoginViewModel;
+                    if (loginVM.IsLogin)
+                    {
+                        p.Show();
+                        DisplayName = loginVM.DisplayName;
+                        userName = loginVM.Username;
+                        IdRole = loginVM.idRole;
+                        IsLoaded = true;
+                        LoadObject();
 
-                var loginVM = lView.DataContext as LoginViewModel;
-                if (loginVM.IsLogin)
-                {
-                    p.Show();
-                    DisplayName = loginVM.DisplayName;
-                    userName = loginVM.Username;
-                    IdRole = loginVM.idRole;
-                }
-                else
-                {
-                    p.Close();
+                        //OutputBetaView beta = new OutputBetaView();
+                        //beta.ShowDialog();
+                    }
+                    else
+                    {
+                        p.Close();
+                    }
                 }
             });
 
@@ -77,15 +106,52 @@ namespace QuanLyKho_MVVM.ViewModels
 
             InputCommand = new RelayCommand<object>((p) => { return true; }, (p) => { InputView input = new InputView(); input.ShowDialog(); });
 
-            CustomerCommand = new RelayCommand<object>((p) => { return true; }, (p) => { CustomerView customer = new CustomerView(); customer.ShowDialog(); });
+            CustomerCommand = new RelayCommand<object>((p) =>
+            {
+                return IsLoaded;
+            }, async (p) =>
+            {
+                CustomerUCView customerUC = new CustomerUCView();
+                await DialogHost.Show(customerUC);
+            });
 
-            UnitCommand = new RelayCommand<object>((p) => { return true; }, (p) => { UnitView unit = new UnitView(); unit.ShowDialog(); });
+            UnitCommand = new RelayCommand<object>((p) =>
+            {
+                return IsLoaded;
+            }, async (p) =>
+            {
+                UnitUCView unitUc = new UnitUCView();
+                await DialogHost.Show(unitUc);
+            });
 
-            SuplierCommand = new RelayCommand<object>((p) => { return true; }, (p) => { SupplierView suplier = new SupplierView(); suplier.ShowDialog(); });
+            SuplierCommand = new RelayCommand<object>((p) => { return IsLoaded; }, async (p) => { SupplierUCView supplierUC = new SupplierUCView(); await DialogHost.Show(supplierUC); });
 
-            ObjectCommand = new RelayCommand<object>((p) => { return true; }, (p) => { ObjectView objectView = new ObjectView(); objectView.ShowDialog(); });
+            ObjectCommand = new RelayCommand<object>((p) => { return IsLoaded; }, async (p) => { ObjectUCView objectuc = new ObjectUCView(); await DialogHost.Show(objectuc); });
 
             OutputCommand = new RelayCommand<object>((p) => { return true; }, (p) => { OutputView outputview = new OutputView(); outputview.ShowDialog(); });
         }
+
+        private void ExtendedClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
+        {
+            if ((bool)eventArgs.Parameter == false) return;
+
+            //OK, lets cancel the close...
+            eventArgs.Cancel();
+        }
+
+        void LoadObject()
+        {
+            var listInputInfo = DataProvider.Instance.DB.InputInfoes;
+            foreach (InputInfo item in listInputInfo)
+            {
+                if (item.Count <= 0)
+                {
+                    item.Status = "Hết hàng";
+                }
+            }
+            DataProvider.Instance.DB.SaveChanges();
+            LoadList();
+        }
+        #endregion
     }
 }

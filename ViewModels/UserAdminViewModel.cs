@@ -116,6 +116,7 @@ namespace QuanLyKho_MVVM.ViewModels
                     item.UserName = UserName;
                     item.IdRole = SelectedUserRole.Id;
                     DataProvider.Instance.DB.SaveChanges();
+                    ResetText();
                 }
             });
 
@@ -131,8 +132,10 @@ namespace QuanLyKho_MVVM.ViewModels
                     DataProvider.Instance.DB.Users.Remove(item);
                     DataProvider.Instance.DB.SaveChanges();
                     ListUser.Remove(item);
+                    ResetText();
                 }
             });
+
             AddCommand = new RelayCommand<object>((p) =>
             {
                 return true;
@@ -160,11 +163,13 @@ namespace QuanLyKho_MVVM.ViewModels
                         DataProvider.Instance.DB.SaveChanges();
 
                         ListUser.Add(user);
+                        ResetText();
                     }
                 }
                 else MessageBox.Show("Vui lòng nhập đủ thông tin", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
 
             });
+
             DeleteTextCommand = new RelayCommand<object>((p) =>
             {
                 return true;
@@ -175,6 +180,7 @@ namespace QuanLyKho_MVVM.ViewModels
                 UserName = string.Empty;
                 SelectedItem = null;
             });
+
             LoadedCommand = new RelayCommand<Window>((p) =>
             {
                 return true;
@@ -186,6 +192,14 @@ namespace QuanLyKho_MVVM.ViewModels
                 Password = string.Empty;
                 UserName = string.Empty;
             });
+        }
+
+        void ResetText()
+        {
+            DisplayName = string.Empty;
+            Password = string.Empty;
+            UserName = string.Empty;
+            SelectedItem = null;
         }
     }
 }

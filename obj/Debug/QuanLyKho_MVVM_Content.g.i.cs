@@ -8,7 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("msvcr100.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sqlserverspatial110.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("msvcr100.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sqlserverspatial110.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/model1.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/model1.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sqlservertypes/readme.htm")]
 
 

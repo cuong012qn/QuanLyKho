@@ -54,7 +54,7 @@ namespace QuanLyKho_MVVM.ViewModels
         public ICommand EditCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand DeleteTextCommand { get; set; }
-        public ICommand LoadedCommand { get; set; }
+        public ICommand LoadedWindowCommand { get; set; }
         public ICommand MouseWheelCommand { get; set; }
         #endregion
 
@@ -127,7 +127,7 @@ namespace QuanLyKho_MVVM.ViewModels
                 }
             });
 
-            LoadedCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 ListSuppliers = new ObservableCollection<Supplier>(DataProvider.Instance.DB.Suppliers);
                 SelectedSupplier = null;

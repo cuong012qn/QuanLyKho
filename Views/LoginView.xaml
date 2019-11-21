@@ -8,46 +8,61 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         DataContext="{StaticResource LoginVM}"
-        Title="Đăng nhập" Height="450" Width="800"
-        Name="loginView" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Border BorderBrush="CornflowerBlue" BorderThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel>
-                <StackPanel Margin="5 0 5 5">
-                    <TextBlock Text="Tên đăng nhập" FontSize="20"></TextBlock>
-                    <TextBox Width="300" FontSize="20"
+        Title="Đăng nhập" Height="210" Width="350"
+        Name="loginView" WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+    <materialDesign:DialogHost Identifier="Root">
+        <Border CornerRadius="10">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#FF76BCE4" Offset="0"></GradientStop>
+                    <GradientStop Color="#FFFFB0B0" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid Margin="5">
+                <StackPanel>
+                    <StackPanel Margin="5 0 5 5">
+                        <TextBlock Text="Tên đăng nhập" FontSize="20"></TextBlock>
+                        <TextBox Width="300" FontSize="20"
                              ToolTip="Nhập tên đăng nhập"
                              Text="{Binding Username}"></TextBox>
-                </StackPanel>
-                <StackPanel Margin="5 0 5 5">
-                    <TextBlock Text="Mật khẩu" FontSize="20" ></TextBlock>
-                    <PasswordBox x:Name="PwbMatKhau" Width="300" FontSize="20"
+                    </StackPanel>
+                    <StackPanel Margin="5 0 5 5">
+                        <TextBlock Text="Mật khẩu" FontSize="20" ></TextBlock>
+                        <PasswordBox x:Name="PwbMatKhau" Width="300" FontSize="20"
                              ToolTip="Nhập mật khẩu">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="PasswordChanged">
-                                <i:InvokeCommandAction Command="{Binding PasswordBoxCommand}" 
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PasswordChanged">
+                                    <i:InvokeCommandAction Command="{Binding PasswordBoxCommand}" 
                                    CommandParameter="{Binding ElementName=PwbMatKhau}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </PasswordBox>
-                </StackPanel>
-                <Grid Height="75">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Button Content="Đăng nhập" IsDefault="True"
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </PasswordBox>
+                    </StackPanel>
+                    <Grid Height="75">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="Đăng nhập" IsDefault="True"
                             Command="{Binding LoginCommand}" 
                             CommandParameter="{Binding ElementName=loginView}" 
                             FontSize="20"
-                            Height="50" Margin="5 0 5 0"></Button>
-                    <Button Content="Thoát" 
+                            Height="50" Margin="5 0 5 0" Background="#FFF74B4B"  BorderBrush="White"></Button>
+                        <Button Content="Thoát" 
                             Command="{Binding ExitCommand}" 
                             CommandParameter="{Binding ElementName=loginView}" 
                             Grid.Column="1" FontSize="20"
-                            Height="50" Margin="5 0 5 0"></Button>
-                </Grid>
-            </StackPanel>
+                            Height="50" Margin="5 0 5 0" Background="#FF58D6D1"  BorderBrush="White"></Button>
+                    </Grid>
+                </StackPanel>
+            </Grid>
         </Border>
-    </Grid>
+        <!--<DockPanel.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#FF76BCE4" Offset="0"></GradientStop>
+                <GradientStop Color="#FFFFB0B0" Offset="1"></GradientStop>
+            </LinearGradientBrush>
+        </DockPanel.Background>-->
+    </materialDesign:DialogHost>
 </Window>
