@@ -104,31 +104,17 @@ namespace QuanLyKho_MVVM.ViewModels
                 }
             });
 
-            InputCommand = new RelayCommand<object>((p) => { return true; }, (p) => { InputView input = new InputView(); input.ShowDialog(); });
+            InputCommand = new RelayCommand<object>((p) => { return IsLoaded; }, async (p) => { InputUCView inputUC = new InputUCView(); await DialogHost.Show(inputUC); });
 
-            CustomerCommand = new RelayCommand<object>((p) =>
-            {
-                return IsLoaded;
-            }, async (p) =>
-            {
-                CustomerUCView customerUC = new CustomerUCView();
-                await DialogHost.Show(customerUC);
-            });
+            CustomerCommand = new RelayCommand<object>((p) => { return IsLoaded; }, async (p) => { CustomerUCView customerUC = new CustomerUCView(); await DialogHost.Show(customerUC); });
 
-            UnitCommand = new RelayCommand<object>((p) =>
-            {
-                return IsLoaded;
-            }, async (p) =>
-            {
-                UnitUCView unitUc = new UnitUCView();
-                await DialogHost.Show(unitUc);
-            });
+            UnitCommand = new RelayCommand<object>((p) => { return IsLoaded; }, async (p) => { UnitUCView unitUc = new UnitUCView(); await DialogHost.Show(unitUc); });
 
             SuplierCommand = new RelayCommand<object>((p) => { return IsLoaded; }, async (p) => { SupplierUCView supplierUC = new SupplierUCView(); await DialogHost.Show(supplierUC); });
 
             ObjectCommand = new RelayCommand<object>((p) => { return IsLoaded; }, async (p) => { ObjectUCView objectuc = new ObjectUCView(); await DialogHost.Show(objectuc); });
 
-            OutputCommand = new RelayCommand<object>((p) => { return true; }, (p) => { OutputView outputview = new OutputView(); outputview.ShowDialog(); });
+            OutputCommand = new RelayCommand<object>((p) => { return IsLoaded; }, async (p) => { OutputUCView outputUC = new OutputUCView(); await DialogHost.Show(outputUC); });
         }
 
         private void ExtendedClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)

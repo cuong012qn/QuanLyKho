@@ -142,10 +142,12 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CustomerUCViewModel.cs" />
     <Compile Include="ViewModels\ExportBillViewModel.cs" />
+    <Compile Include="ViewModels\InputUCViewModel.cs" />
     <Compile Include="ViewModels\LoadingViewModel.cs" />
     <Compile Include="ViewModels\ObjectUCViewModel.cs" />
     <Compile Include="ViewModels\ObjectViewModel.cs" />
     <Compile Include="ViewModels\OutputBetaViewModel.cs" />
+    <Compile Include="ViewModels\OutputUCViewModel.cs" />
     <Compile Include="ViewModels\OutputViewModel.cs" />
     <Compile Include="ViewModels\SupplierUCViewModel.cs" />
     <Compile Include="ViewModels\SupplierViewModel.cs" />
@@ -166,6 +168,9 @@
     <Compile Include="Views\ExportBillView.xaml.cs">
       <DependentUpon>ExportBillView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\InputUCView.xaml.cs">
+      <DependentUpon>InputUCView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoadingView.xaml.cs">
       <DependentUpon>LoadingView.xaml</DependentUpon>
     </Compile>
@@ -175,8 +180,8 @@
     <Compile Include="Views\ObjectView.xaml.cs">
       <DependentUpon>ObjectView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OutputBetaView.xaml.cs">
-      <DependentUpon>OutputBetaView.xaml</DependentUpon>
+    <Compile Include="Views\OutputUCView.xaml.cs">
+      <DependentUpon>OutputUCView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OutputView.xaml.cs">
       <DependentUpon>OutputView.xaml</DependentUpon>
@@ -274,6 +279,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\InputUCView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoadingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -286,7 +295,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\OutputBetaView.xaml">
+    <Page Include="Views\OutputUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

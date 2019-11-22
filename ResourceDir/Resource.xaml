@@ -20,5 +20,7 @@
     <ViewModels:CustomerUCViewModel x:Key="CustomerUCVM"></ViewModels:CustomerUCViewModel>
     <ViewModels:SupplierUCViewModel x:Key="SupplierUCVM"></ViewModels:SupplierUCViewModel>
     <ViewModels:ObjectUCViewModel x:Key="ObjectUCVM"></ViewModels:ObjectUCViewModel>
+    <ViewModels:InputUCViewModel x:Key="InputUCVM"></ViewModels:InputUCViewModel>
+    <ViewModels:OutputUCViewModel x:Key="OutputUCVM"></ViewModels:OutputUCViewModel>
     <!---->
 </ResourceDictionary>

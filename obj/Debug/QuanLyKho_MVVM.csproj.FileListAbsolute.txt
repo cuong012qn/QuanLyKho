@@ -54,8 +54,6 @@ F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\bin\Debug\SqlServerTypes\x64\SqlServerSpati
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\bin\Debug\SqlServerTypes\x86\msvcr100.dll
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\bin\Debug\SqlServerTypes\x86\SqlServerSpatial110.dll
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\bin\Debug\Microsoft.SqlServer.Types.dll
-F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\OutputBetaView.g.cs
-F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\OutputBetaView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\UC\UCBar.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\UC\UCBar.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\LoadingView.g.cs
@@ -75,3 +73,7 @@ F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\TestExpander.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\QuanLyKho_MVVM.csprojAssemblyReference.cache
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\ObjectUCView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\ObjectUCView.baml
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\InputUCView.g.cs
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\InputUCView.baml
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\OutputUCView.g.cs
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\OutputUCView.baml
