@@ -8,11 +8,16 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using QuanLyKho_MVVM.Views;
+using System.ComponentModel;
+using MaterialDesignThemes.Wpf;
 
 namespace QuanLyKho_MVVM.ViewModels
 {
     class UnitUCViewModel : BaseViewModel
     {
+        private BackgroundWorker bgWk;
+        private LoadingView loadingview;
         private int _id;
         private string _displayName;
         private ObservableCollection<Unit> _listUnit;
@@ -37,6 +42,7 @@ namespace QuanLyKho_MVVM.ViewModels
         public ICommand DeleteCommand { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand LoadedWindowCommand { get; set; }
+
         #endregion
 
         public UnitUCViewModel()
@@ -44,9 +50,28 @@ namespace QuanLyKho_MVVM.ViewModels
             LoadCommand();
         }
 
+        private void BgWk_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (loadingview.Equals(null))
+            {
+                loadingview = new LoadingView();
+                DialogHost.Show(loadingview, "RootMainWindow");
+
+            }
+        }
+
         async void LoadList()
         {
-            await Task.Run(() => { ListUnit = new ObservableCollection<Unit>(DataProvider.Instance.DB.Units); });
+            //bgWk = new BackgroundWorker();
+            //bgWk.RunWorkerAsync();
+            loadingview = new LoadingView();
+            var temp = DialogHost.Show(loadingview, "RootMainWindow");
+            Task task = Task.Run(() => { ListUnit = new ObservableCollection<Unit>(DataProvider.Instance.DB.Units); });
+            await task;
+            if (task.IsCompleted)
+            {
+                DialogHost.CloseDialogCommand.Execute(null, null);
+            }
         }
 
         void LoadCommand()

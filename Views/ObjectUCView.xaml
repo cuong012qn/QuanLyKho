@@ -9,7 +9,7 @@
              xmlns:local="clr-namespace:QuanLyKho_MVVM.Views"
              Name="objectUCVM"
              mc:Ignorable="d" FontSize="20" DataContext="{StaticResource ObjectUCVM}"
-             Height="800" Width="800" Background="White">
+             Background="White">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
@@ -22,7 +22,6 @@
         <KeyBinding Command="{Binding EditCommand}" Key="F7"></KeyBinding>
     </UserControl.InputBindings>
     <DockPanel>
-        <uc:UCBar4Dialog DockPanel.Dock="Top"></uc:UCBar4Dialog>
         <materialDesign:Card Margin="5" DockPanel.Dock="Top">
             <Expander Header="Nhập loại mặt hàng" materialDesign:ColorZoneAssist.Mode="Light">
                 <DockPanel>

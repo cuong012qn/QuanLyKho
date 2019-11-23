@@ -9,7 +9,7 @@
              xmlns:uc="clr-namespace:QuanLyKho_MVVM.UC"
              Name="customerUCVM"
              FontSize="20" Background="White"
-             mc:Ignorable="d" Height="700" Width="800" DataContext="{StaticResource CustomerUCVM}">
+             mc:Ignorable="d" DataContext="{StaticResource CustomerUCVM}">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
@@ -22,7 +22,6 @@
         <KeyBinding Command="{Binding DeleteCommand}" Key="F6"></KeyBinding>
     </UserControl.InputBindings>
     <DockPanel>
-        <uc:UCBar4Dialog DockPanel.Dock="Top"></uc:UCBar4Dialog>
         <materialDesign:Card DockPanel.Dock="Top" Margin="5">
             <Expander HorizontalAlignment="Stretch" Header="Nhập thông tin khách hàng" Margin="5">
                 <DockPanel>

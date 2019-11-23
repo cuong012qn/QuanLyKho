@@ -139,11 +139,15 @@
     <Compile Include="UC\UCBar4Dialog.xaml.cs">
       <DependentUpon>UCBar4Dialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UC\UCInputCount.xaml.cs">
+      <DependentUpon>UCInputCount.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CustomerUCViewModel.cs" />
     <Compile Include="ViewModels\ExportBillViewModel.cs" />
     <Compile Include="ViewModels\InputUCViewModel.cs" />
     <Compile Include="ViewModels\LoadingViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowBetaViewModel.cs" />
     <Compile Include="ViewModels\ObjectUCViewModel.cs" />
     <Compile Include="ViewModels\ObjectViewModel.cs" />
     <Compile Include="ViewModels\OutputBetaViewModel.cs" />
@@ -151,6 +155,7 @@
     <Compile Include="ViewModels\OutputViewModel.cs" />
     <Compile Include="ViewModels\SupplierUCViewModel.cs" />
     <Compile Include="ViewModels\SupplierViewModel.cs" />
+    <Compile Include="ViewModels\UCInputCountViewModel.cs" />
     <Compile Include="ViewModels\UnitUCViewModel.cs" />
     <Compile Include="ViewModels\UnitViewModel.cs" />
     <Compile Include="ViewModels\UserAdminViewModel.cs" />
@@ -173,6 +178,9 @@
     </Compile>
     <Compile Include="Views\LoadingView.xaml.cs">
       <DependentUpon>LoadingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindowBetaView.xaml.cs">
+      <DependentUpon>MainWindowBetaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ObjectUCView.xaml.cs">
       <DependentUpon>ObjectUCView.xaml</DependentUpon>
@@ -267,6 +275,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UC\UCInputCount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CustomerUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -284,6 +296,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoadingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindowBetaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

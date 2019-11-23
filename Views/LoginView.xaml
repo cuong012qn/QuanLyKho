@@ -11,8 +11,7 @@
         Title="Đăng nhập" Height="210" Width="350"
         Name="loginView" WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
-    <materialDesign:DialogHost Identifier="Root">
-        <Border CornerRadius="10">
+    <Border CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#FF76BCE4" Offset="0"></GradientStop>
@@ -64,5 +63,4 @@
                 <GradientStop Color="#FFFFB0B0" Offset="1"></GradientStop>
             </LinearGradientBrush>
         </DockPanel.Background>-->
-    </materialDesign:DialogHost>
 </Window>

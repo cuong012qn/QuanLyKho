@@ -14,6 +14,7 @@ namespace QuanLyKho_MVVM.ViewModels
     class CustomerUCViewModel : BaseViewModel
     {
         #region Properties
+        private LoadingView loadingview;
         private ObservableCollection<Customer> _listCustomers;
         private string _displayName = string.Empty;
         private string _address = string.Empty;
@@ -61,7 +62,11 @@ namespace QuanLyKho_MVVM.ViewModels
 
         async void LoadList()
         {
-            await Task.Run(() => { ListCustomers = new ObservableCollection<Customer>(DataProvider.Instance.DB.Customers); });
+            loadingview = new LoadingView();
+            var temp = DialogHost.Show(loadingview, "RootMainWindow");
+            Task task = Task.Run(() => { ListCustomers = new ObservableCollection<Customer>(DataProvider.Instance.DB.Customers); });
+            await task;
+            if (task.IsCompleted) DialogHost.CloseDialogCommand.Execute(null, null);
         }
 
         void LoadCommand()

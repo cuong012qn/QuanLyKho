@@ -70,10 +70,14 @@ F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\SupplierUCView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\SupplierUCView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\TestExpander.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\TestExpander.baml
-F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\QuanLyKho_MVVM.csprojAssemblyReference.cache
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\ObjectUCView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\ObjectUCView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\InputUCView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\InputUCView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\OutputUCView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\OutputUCView.baml
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\MainWindowBetaView.g.cs
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\MainWindowBetaView.baml
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\UC\UCInputCount.g.cs
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\UC\UCInputCount.baml
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\QuanLyKho_MVVM.csprojAssemblyReference.cache

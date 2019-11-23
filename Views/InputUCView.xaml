@@ -8,7 +8,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QuanLyKho_MVVM.Views"
              x:Name="inputUCVM" FontSize="20" Background="White"
-             mc:Ignorable="d" DataContext="{StaticResource InputUCVM}" Height="850" Width="850">
+             mc:Ignorable="d" DataContext="{StaticResource InputUCVM}">
     <UserControl.InputBindings>
         <KeyBinding Command="{Binding AddCommand}" Key="F5"></KeyBinding>
         <KeyBinding Command="{Binding EditCommand}" Key="F7"></KeyBinding>
@@ -21,7 +21,6 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <DockPanel>
-        <uc:UCBar4Dialog DockPanel.Dock="Top"></uc:UCBar4Dialog>
         <materialDesign:Card Grid.Row="0" VerticalAlignment="Stretch" Margin="5" Grid.RowSpan="1" DockPanel.Dock="Top">
             <Expander Header="Phiếu nhập" Margin="5" materialDesign:ColorZoneAssist.Mode="Light">
                 <Grid>

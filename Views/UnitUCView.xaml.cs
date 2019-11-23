@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,10 @@ namespace QuanLyKho_MVVM.Views
         public UnitUCView()
         {
             InitializeComponent();
+        }
+
+        private void UnitUCVM_Loaded(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

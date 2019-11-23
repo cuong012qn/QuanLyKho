@@ -7,12 +7,15 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Object = QuanLyKho_MVVM.Models.Object;
+using QuanLyKho_MVVM.Views;
+using MaterialDesignThemes.Wpf;
 
 namespace QuanLyKho_MVVM.ViewModels
 {
     class InputUCViewModel : BaseViewModel
     {
         #region Private Properties
+        private LoadingView loadingview;
         private ObservableCollection<Object> _listObject;
         private ObservableCollection<InputInfo> _listInputInfos;
         private InputInfo _selectedInputInfo;
@@ -160,12 +163,16 @@ namespace QuanLyKho_MVVM.ViewModels
 
         async void LoadList()
         {
-            await Task.Run(() =>
+            loadingview = new LoadingView();
+            var temp = DialogHost.Show(loadingview, "RootMainWindow");
+            Task task = Task.Run(() =>
             {
                 ListInputInfos = new ObservableCollection<InputInfo>(DataProvider.Instance.DB.InputInfoes);
                 ListObject = new ObservableCollection<Object>(DataProvider.Instance.DB.Objects);
                 UpdateSumInputInfo();
             });
+            await task;
+            if (task.IsCompleted) DialogHost.CloseDialogCommand.Execute(null, null);
         }
 
         void UpdateSumInputInfo()

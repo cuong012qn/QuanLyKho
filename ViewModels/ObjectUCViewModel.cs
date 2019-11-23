@@ -7,12 +7,15 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Object = QuanLyKho_MVVM.Models.Object;
+using QuanLyKho_MVVM.Views;
+using MaterialDesignThemes.Wpf;
 
 namespace QuanLyKho_MVVM.ViewModels
 {
     class ObjectUCViewModel : BaseViewModel
     {
         #region Private Properties
+        private LoadingView loadingview;
         private ObservableCollection<Unit> _listUnit;
         private ObservableCollection<Supplier> _listSupplier;
         private ObservableCollection<Object> _listObject;
@@ -145,12 +148,16 @@ namespace QuanLyKho_MVVM.ViewModels
 
         async void LoadList()
         {
-            await Task.Run(() =>
-            {
-                ListObject = new ObservableCollection<Object>(DataProvider.Instance.DB.Objects);
-                ListUnit = new ObservableCollection<Unit>(DataProvider.Instance.DB.Units);
-                ListSupplier = new ObservableCollection<Supplier>(DataProvider.Instance.DB.Suppliers);
-            });
+            loadingview = new LoadingView();
+            var temp = DialogHost.Show(loadingview, "RootMainWindow");
+            Task task = Task.Run(() =>
+           {
+               ListObject = new ObservableCollection<Object>(DataProvider.Instance.DB.Objects);
+               ListUnit = new ObservableCollection<Unit>(DataProvider.Instance.DB.Units);
+               ListSupplier = new ObservableCollection<Supplier>(DataProvider.Instance.DB.Suppliers);
+           });
+            await task;
+            if (task.IsCompleted) DialogHost.CloseDialogCommand.Execute(null, null);
         }
         #endregion
     }

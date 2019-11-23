@@ -13,8 +13,11 @@
     <ViewModels:CustomerViewModel x:Key="CustomerVM"></ViewModels:CustomerViewModel>
     <ViewModels:UserAdminViewModel x:Key="AdminVM"></ViewModels:UserAdminViewModel>
     <ViewModels:OutputViewModel x:Key="OutputVM"></ViewModels:OutputViewModel>
-    
-    
+
+
+    <ViewModels:MainWindowBetaViewModel x:Key="MainBetaVM"></ViewModels:MainWindowBetaViewModel>
+    <ViewModels:UCInputCountViewModel x:Key="UCInputCountVM"></ViewModels:UCInputCountViewModel>
+
     <!--UserControl-->
     <ViewModels:UnitUCViewModel x:Key="UnitUCVM"></ViewModels:UnitUCViewModel>
     <ViewModels:CustomerUCViewModel x:Key="CustomerUCVM"></ViewModels:CustomerUCViewModel>
