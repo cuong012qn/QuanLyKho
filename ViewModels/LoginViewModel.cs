@@ -16,6 +16,7 @@ namespace QuanLyKho_MVVM.ViewModels
         private string username = string.Empty;
         private string password = string.Empty;
         private string displayName = string.Empty;
+        private MainWindowBetaView mainView;
 
         public int idRole;
         public bool IsLogin { get; set; }
@@ -66,9 +67,6 @@ namespace QuanLyKho_MVVM.ViewModels
             {
                 bool isError = false;
                 User user = null;
-                //string name = from x in DataProvider.Instance.DB.Users
-                //              where x.UserName.Equals(Username) && x.Password.Equals(Password)
-                //              select x.DisplayName.First;
                 await Task.Run(() =>
                 {
                     try
@@ -87,8 +85,6 @@ namespace QuanLyKho_MVVM.ViewModels
                 {
                     if (user != null)
                     {
-                        DisplayName = user.DisplayName;
-                        idRole = user.IdRole;
                         IsLogin = true;
                         window.Close();
                     }

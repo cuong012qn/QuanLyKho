@@ -17,6 +17,7 @@
 
     <ViewModels:MainWindowBetaViewModel x:Key="MainBetaVM"></ViewModels:MainWindowBetaViewModel>
     <ViewModels:UCInputCountViewModel x:Key="UCInputCountVM"></ViewModels:UCInputCountViewModel>
+    <ViewModels:LoginUCViewModel x:Key="LoginUCVM"></ViewModels:LoginUCViewModel>
 
     <!--UserControl-->
     <ViewModels:UnitUCViewModel x:Key="UnitUCVM"></ViewModels:UnitUCViewModel>

@@ -20,13 +20,21 @@ namespace QuanLyKho_MVVM.ViewModels
         public MainWindowBetaViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
-             {
-                 if (!isLoaded)
-                 {
-                     isLoaded = true;
-
-                 }
-             });
+            {
+                if (!isLoaded)
+                {
+                    p.Hide();
+                    var login = new LoginView();
+                    login.ShowDialog();
+                    var temp = login.DataContext as LoginViewModel;
+                    if (temp.IsLogin)
+                    {
+                        isLoaded = true;
+                        p.Show();
+                    }
+                    else p.Close();
+                }
+            });
         }
     }
 }

@@ -147,6 +147,7 @@
     <Compile Include="ViewModels\ExportBillViewModel.cs" />
     <Compile Include="ViewModels\InputUCViewModel.cs" />
     <Compile Include="ViewModels\LoadingViewModel.cs" />
+    <Compile Include="ViewModels\LoginUCViewModel.cs" />
     <Compile Include="ViewModels\MainWindowBetaViewModel.cs" />
     <Compile Include="ViewModels\ObjectUCViewModel.cs" />
     <Compile Include="ViewModels\ObjectViewModel.cs" />
@@ -178,6 +179,9 @@
     </Compile>
     <Compile Include="Views\LoadingView.xaml.cs">
       <DependentUpon>LoadingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginUCView.xaml.cs">
+      <DependentUpon>LoginUCView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindowBetaView.xaml.cs">
       <DependentUpon>MainWindowBetaView.xaml</DependentUpon>
@@ -296,6 +300,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoadingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

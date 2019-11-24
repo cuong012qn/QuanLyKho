@@ -80,4 +80,6 @@ F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\MainWindowBetaView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\MainWindowBetaView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\UC\UCInputCount.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\UC\UCInputCount.baml
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\LoginUCView.g.cs
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\LoginUCView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\QuanLyKho_MVVM.csprojAssemblyReference.cache
