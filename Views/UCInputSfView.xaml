@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="QuanLyKho_MVVM.Views.InputUCStaffView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:QuanLyKho_MVVM.Views"
+             mc:Ignorable="d" Background="White" DataContext="{StaticResource InputStaffVM}"
+             >
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding AddCommand}" Key="F5"></KeyBinding>
+        <!--<KeyBinding Command="{Binding EditCommand}" Key="F7"></KeyBinding>
+        <KeyBinding Command="{Binding DeleteCommand}" Key="F6"></KeyBinding>-->
+    </UserControl.InputBindings>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
+                                   CommandParameter="{Binding ElementName=inputUCVM}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <DockPanel>
+        <materialDesign:Card Grid.Row="0" VerticalAlignment="Stretch" Margin="5" Grid.RowSpan="1" DockPanel.Dock="Top">
+            <Expander Header="Phiếu nhập" Margin="5" materialDesign:ColorZoneAssist.Mode="Light">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <!--Row 1-->
+                    <ComboBox materialDesign:HintAssist.Hint="Tên hàng hóa" Grid.Column="1" Grid.Row="0" Margin="5"
+                                  IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                  ItemsSource="{Binding ListObject}" SelectedItem="{Binding SelectedObject}"
+                                  DisplayMemberPath="DisplayName">
+                    </ComboBox>
+                    <TextBox materialDesign:HintAssist.Hint="Nhà cung cấp" IsEnabled="False" 
+                            Grid.Column="0" Grid.Row="0" Margin="5" Text="{Binding SelectedObject.Supplier.DisplayName}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+
+                    <!--Row 2-->
+                    <TextBox materialDesign:HintAssist.Hint="Số lượng" Grid.Column="0" Grid.Row="1" Margin="5"
+                             Text="{Binding Count}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+
+                    <!--Row 3-->
+                    <TextBox materialDesign:HintAssist.Hint="Tình trạng" Grid.Column="0" Grid.Row="3" Margin="5"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding Status}" IsEnabled="False"/>
+                    <DatePicker materialDesign:HintAssist.Hint="Ngày nhập" Grid.Column="1" Grid.Row="3" Margin="5"
+                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                                SelectedDate="{Binding DateInput}"/>
+
+                    <!--Row 4-->
+                    <TextBox materialDesign:HintAssist.Hint="Giá nhập" Grid.Column="0" Grid.Row="2" Margin="5"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             Text="{Binding InputPrice}"/>
+                    <TextBox materialDesign:HintAssist.Hint="Giá bán" Grid.Column="1" Grid.Row="2" Margin="5"
+                             Text="{Binding OutputPrice}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 10 0 0">
+                        <Button Height="50" Width="115" Margin="2" Command="{Binding AddCommand}" Background="#FF49AEE8" BorderBrush="White" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Add" VerticalAlignment="Stretch" />
+                                <TextBlock>Thêm (F5)</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button Height="50" Width="115" Margin="2" Command="{Binding DeleteCommand}" Background="#FF49AEE8"  BorderBrush="White" IsEnabled="False">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Stretch"/>
+                                <TextBlock Text="Xóa (F6)"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button Height="50" Width="115" Margin="2" Command="{Binding EditCommand}" Background="#FF49AEE8"  BorderBrush="White" IsEnabled="False">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ModeEditOutline" VerticalAlignment="Stretch"/>
+                                <TextBlock Text="Sửa (F7)"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Expander>
+        </materialDesign:Card>
+        <materialDesign:Card VerticalAlignment="Stretch" DockPanel.Dock="Top" Margin="5">
+            <TextBox materialDesign:HintAssist.Hint="Tìm kiếm hàng" Text="{Binding Search,UpdateSourceTrigger=PropertyChanged}" Margin="5"></TextBox>
+        </materialDesign:Card>
+        <materialDesign:Card VerticalAlignment="Stretch" Margin="5" DockPanel.Dock="Bottom">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox materialDesign:HintAssist.Hint="Tổng số lượng" IsEnabled="False" Margin="5" Text="{Binding SumCount}"/>
+                <TextBox materialDesign:HintAssist.Hint="Tổng tiền nhập" IsEnabled="False" Grid.Column="1" Margin="5" Text="{Binding SumInputPrice}"/>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Column="1" Grid.RowSpan="2" VerticalAlignment="Stretch" Margin="5" DockPanel.Dock="Top">
+            <GroupBox Header="Thống kê" Margin="5" materialDesign:ColorZoneAssist.Mode="Light">
+                <DockPanel>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top">
+                        <ListView ItemsSource="{Binding ListInputInfos, Mode=TwoWay}"
+                                  SelectedItem="{Binding SelectedInputInfo, Mode=OneWayToSource}"
+                                  >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Tên hàng hóa" DisplayMemberBinding="{Binding Object.DisplayName}"></GridViewColumn>
+                                    <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding Count}"></GridViewColumn>
+                                    <GridViewColumn Header="Giá nhập" DisplayMemberBinding="{Binding InputPrice}"></GridViewColumn>
+                                    <GridViewColumn Header="Giá bán" DisplayMemberBinding="{Binding OutputPrice}"></GridViewColumn>
+                                    <GridViewColumn Header="Tình trạng" DisplayMemberBinding="{Binding Status}"></GridViewColumn>
+                                    <GridViewColumn Header="Ngày bán" DisplayMemberBinding="{Binding Input.DateInput}"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </ScrollViewer>
+                </DockPanel>
+            </GroupBox>
+        </materialDesign:Card>
+    </DockPanel>
+</UserControl>

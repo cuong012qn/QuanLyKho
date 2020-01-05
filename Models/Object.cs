@@ -13,7 +13,7 @@ namespace QuanLyKho_MVVM.Models
     using QuanLyKho_MVVM.ViewModels;
     using System.Collections.Generic;
 
-    public partial class Object : BaseViewModel
+    public partial class Object : BaseCommand
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Object()

@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="QuanLyKho_MVVM.UC.UCInputCount"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyKho_MVVM.UC"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Name="countInputVM"
+             mc:Ignorable="d" Background="White" FontSize="20" DataContext="{StaticResource UCInputCountVM}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
+                                   CommandParameter="{Binding ElementName=countInputVM}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <DockPanel>
+        <materialDesign:Card HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" DockPanel.Dock="Top">
+            <GroupBox Header="Thống kê" Margin="5"
+                      materialDesign:ColorZoneAssist.Mode="PrimaryLight">
+                <DockPanel>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="5">
+                        <TextBlock Margin="5" Text="Từ ngày" VerticalAlignment="Stretch"></TextBlock>
+                        <DatePicker Width="150"></DatePicker>
+                        <TextBlock Margin="5" Text="Đến ngày" VerticalAlignment="Stretch"></TextBlock>
+                        <DatePicker Width="150"></DatePicker>
+                    </StackPanel>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top">
+                        <DataGrid ItemsSource="{Binding ListTonKho}" CanUserAddRows="False" CanUserSortColumns="True" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="STT" Binding="{Binding Path=STT}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Tên hàng hóa" Binding="{Binding Path=Object.DisplayName}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Số lượng" Binding="{Binding Count}"></DataGridTextColumn>
+                                <!--<DataGridTextColumn Header="Giá nhập" Binding="{Binding InputPrice}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Giá bán" Binding="{Binding OutputPrice}"></DataGridTextColumn>-->
+                                <!--<DataGridTextColumn Header="Tình trạng" Binding="{Binding Status}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Ngày bán" Binding="{Binding Input.DateInput}"></DataGridTextColumn>-->
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
+                </DockPanel>
+            </GroupBox>
+        </materialDesign:Card>
+    </DockPanel>
+</UserControl>

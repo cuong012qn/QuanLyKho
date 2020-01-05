@@ -6,31 +6,25 @@
     <ViewModels:LoadingViewModel x:Key="LoadingVM"></ViewModels:LoadingViewModel>
     <ViewModels:LoginViewModel x:Key="LoginVM"></ViewModels:LoginViewModel>
     <ViewModels:DefaultUserViewModel x:Key="DefalutUserVM"></ViewModels:DefaultUserViewModel>
-    <ViewModels:InputViewModel x:Key="InputVM"></ViewModels:InputViewModel>
-    <ViewModels:ObjectViewModel x:Key="ObjectVM"></ViewModels:ObjectViewModel>
-    <ViewModels:SupplierViewModel x:Key="SuplierVM"></ViewModels:SupplierViewModel>
-    <ViewModels:UnitViewModel x:Key="UnitVM"></ViewModels:UnitViewModel>
-    <ViewModels:OutputBetaViewModel x:Key="OutputBetaVM"></ViewModels:OutputBetaViewModel>
     <ViewModels:CustomerViewModel x:Key="CustomerVM"></ViewModels:CustomerViewModel>
     <ViewModels:UserAdminViewModel x:Key="AdminVM"></ViewModels:UserAdminViewModel>
-    <ViewModels:OutputViewModel x:Key="OutputVM"></ViewModels:OutputViewModel>
     <!--#endregion-->
 
 
     <!--#region Main-->
     <ViewModels:MainWindowViewModel x:Key="MainWindowVM"></ViewModels:MainWindowViewModel>
     <ViewModels:UCInputCountViewModel x:Key="UCInputCountVM"></ViewModels:UCInputCountViewModel>
-    <ViewModels:LoginUCViewModel x:Key="LoginUCVM"></ViewModels:LoginUCViewModel>
+    <ViewModels:UCLoginViewModel x:Key="LoginUCVM"></ViewModels:UCLoginViewModel>
     <!--#endregion-->
 
 
     <!--UserControl-->
-    <ViewModels:InputUCStaffViewModel x:Key="InputStaffVM"></ViewModels:InputUCStaffViewModel>
-    <ViewModels:UnitUCViewModel x:Key="UnitUCVM"></ViewModels:UnitUCViewModel>
-    <ViewModels:CustomerUCViewModel x:Key="CustomerUCVM"></ViewModels:CustomerUCViewModel>
-    <ViewModels:SupplierUCViewModel x:Key="SupplierUCVM"></ViewModels:SupplierUCViewModel>
-    <ViewModels:ObjectUCViewModel x:Key="ObjectUCVM"></ViewModels:ObjectUCViewModel>
-    <ViewModels:InputUCViewModel x:Key="InputUCVM"></ViewModels:InputUCViewModel>
-    <ViewModels:OutputUCViewModel x:Key="OutputUCVM"></ViewModels:OutputUCViewModel>
+    <ViewModels:UCInputSfViewModel x:Key="InputStaffVM"></ViewModels:UCInputSfViewModel>
+    <ViewModels:UCUnitViewModel x:Key="UnitUCVM"></ViewModels:UCUnitViewModel>
+    <ViewModels:UCCustomerViewModel x:Key="CustomerUCVM"></ViewModels:UCCustomerViewModel>
+    <ViewModels:UCSupplierViewModel x:Key="SupplierUCVM"></ViewModels:UCSupplierViewModel>
+    <ViewModels:UCObjectViewModel x:Key="ObjectUCVM"></ViewModels:UCObjectViewModel>
+    <ViewModels:UCInputViewModel x:Key="InputUCVM"></ViewModels:UCInputViewModel>
+    <ViewModels:UCOutputViewModel x:Key="OutputUCVM"></ViewModels:UCOutputViewModel>
     <!---->
 </ResourceDictionary>

@@ -15,6 +15,13 @@ namespace QuanLyKho_MVVM.ViewModels
         }
     }
 
+    interface BaseCommand : ICommand
+    {
+        ICommand AddCommand { get; set; }
+        ICommand EditCommand { get; set; }
+        ICommand DeleteCommand { get; set; }
+    }
+
     class RelayCommand<T> : ICommand
     {
         private readonly Predicate<T> _canExecute;

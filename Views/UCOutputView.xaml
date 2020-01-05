@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="QuanLyKho_MVVM.Views.OutputUCView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:uc="clr-namespace:QuanLyKho_MVVM.UC"
+             xmlns:local="clr-namespace:QuanLyKho_MVVM.Views"
+             mc:Ignorable="d" FontSize="20" Background="White" DataContext="{StaticResource OutputUCVM}"
+             Name="ouputUCVM">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding AddCommand}" Key="F5"></KeyBinding>
+        <KeyBinding Command="{Binding EditCommand}" Key="F7"></KeyBinding>
+        <KeyBinding Command="{Binding DeleteCommand}" Key="F6"></KeyBinding>
+        <KeyBinding Command="{Binding ExportBillCommand}" Key="F8"></KeyBinding>
+    </UserControl.InputBindings>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
+                                   CommandParameter="{Binding ElementName=ouputUCVM}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <DockPanel>
+        <DockPanel>
+            <materialDesign:Card Grid.Row="0" VerticalAlignment="Stretch" Margin="5" Grid.RowSpan="1" DockPanel.Dock="Top">
+                <GroupBox Header="Phiếu nhập" Margin="5" materialDesign:ColorZoneAssist.Mode="Light">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <!--Row 1-->
+                        <ComboBox materialDesign:HintAssist.Hint="Tên khách hàng" Grid.Column="1" Grid.Row="0" Margin="5" Grid.ColumnSpan="2"
+                                  IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                  ItemsSource="{Binding ListCustomers}" SelectedItem="{Binding SelectedCustomer}"
+                                  DisplayMemberPath="DisplayName">
+                        </ComboBox>
+                        <TextBox materialDesign:HintAssist.Hint="Số điện thoại" IsEnabled="False"
+                            Grid.Column="0" Grid.Row="0" Margin="5" Text="{Binding SelectedCustomer.Phone}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+
+                        <!--Row 2-->
+                        <TextBox materialDesign:HintAssist.Hint="Nhà cung cấp" Grid.Column="0" Grid.Row="1" Margin="5" IsEnabled="False"
+                             Text="{Binding SelectedObject.Supplier.DisplayName}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+                        <ComboBox materialDesign:HintAssist.Hint="Tên mặt hàng" Grid.Column="1" Grid.Row="1" Margin="5" IsEditable="True"
+                                   Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.ColumnSpan="2"
+                                  ItemsSource="{Binding ListObjects}" SelectedItem="{Binding SelectedObject,UpdateSourceTrigger=PropertyChanged}"
+                                  DisplayMemberPath="DisplayName">
+                        </ComboBox>
+
+                        <!--Row 3-->
+                        <DatePicker materialDesign:HintAssist.Hint="Ngày nhập" Grid.Column="0" Grid.Row="3" Margin="5"
+                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" IsEnabled="False"
+                                SelectedDate="{Binding SelectedInputInfo.Input.DateInput}"/>
+                        <DatePicker materialDesign:HintAssist.Hint="Ngày xuất" Grid.Column="1" Grid.Row="3" Margin="5" IsEnabled="False"
+                                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDate="{Binding DateTimeOutput,UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBox materialDesign:HintAssist.Hint="Trạng thái" Grid.Column="2" Grid.Row="3" Margin="5" Foreground="Red" FontWeight="DemiBold"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" IsEnabled="False"
+                             Text="{Binding SelectedInputInfo.Status}"/>
+                        <!--Row 4-->
+
+                        <TextBox materialDesign:HintAssist.Hint="Giá" Grid.Column="2" Grid.Row="2" Margin="5"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" IsEnabled="False"
+                                 Text="{Binding SelectedInputInfo.OutputPrice}"
+                             />
+                        <TextBox materialDesign:HintAssist.Hint="Tồn kho" Grid.Column="0" Grid.Row="2" Margin="5" IsEnabled="False"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding SelectedInputInfo.Count}"/>
+
+                        <TextBox materialDesign:HintAssist.Hint="Số lượng xuất" Grid.Column="1" Grid.Row="2" Margin="0,5,10,5"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding CountOutput,UpdateSourceTrigger=PropertyChanged}">
+                        </TextBox>
+
+                        <StackPanel Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 10 0 0">
+                            <Button Height="50" Width="115" Margin="2" Command="{Binding AddCommand}" Background="#FF49AEE8" BorderBrush="White" >
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Add" VerticalAlignment="Stretch" />
+                                    <TextBlock>Thêm (F5)</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button Height="50" Width="115" Margin="2" Command="{Binding DeleteCommand}" Background="#FF49AEE8"  BorderBrush="White">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Stretch"/>
+                                    <TextBlock Text="Xóa (F6)"></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button Height="50" Width="115" Margin="2" Background="#FF49AEE8"  BorderBrush="White" Command="{Binding ScanBarcodeCommand}" CommandParameter="">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="ModeEditOutline" VerticalAlignment="Stretch"/>
+                                    <TextBlock Text="Barcode"></TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </GroupBox>
+            </materialDesign:Card>
+            <materialDesign:Card VerticalAlignment="Stretch" DockPanel.Dock="Top" Margin="5">
+                <TextBox materialDesign:HintAssist.Hint="Tìm kiếm hàng" Text="{Binding Search,UpdateSourceTrigger=PropertyChanged}" Margin="5"></TextBox>
+            </materialDesign:Card>
+            <materialDesign:Card VerticalAlignment="Stretch" Margin="5" DockPanel.Dock="Bottom">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBox materialDesign:HintAssist.Hint="Tổng tiền" IsEnabled="False" Grid.Column="3" Margin="5" Foreground="Red"
+                         Text="{Binding TotalPrice}" FontWeight="DemiBold"/>
+                    <Button Height="50" Width="135" Margin="2" Command="{Binding ExportBill}"
+                            Background="#FF49AEE8"  BorderBrush="White" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ModeEditOutline" VerticalAlignment="Stretch"/>
+                            <TextBlock Text="Tính tiền (F8)"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Column="1" Grid.RowSpan="2" VerticalAlignment="Stretch" Margin="5" DockPanel.Dock="Top">
+                <GroupBox Header="Hóa đơn" Margin="5" materialDesign:ColorZoneAssist.Mode="Light">
+                    <DockPanel>
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top">
+                            <!--<ListView ItemsSource="{Binding ListOutputInfos, Mode=TwoWay}" SelectedItem="{Binding SelectedOutputInfo,Mode=OneWayToSource}">
+                                -->
+                            <!--SelectedItem="{Binding SelectedInputInfo, Mode=OneWayToSource}"-->
+                            <!--
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Tên hàng hóa" DisplayMemberBinding="{Binding Object.DisplayName}"></GridViewColumn>
+                                        <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding Count}"></GridViewColumn>
+                                        <GridViewColumn Header="Giá tiền" DisplayMemberBinding="{Binding InputInfo.OutputPrice}"></GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>-->
+                            <DataGrid CanUserAddRows="False" CanUserSortColumns="True" SelectedItem="{Binding SelectedOutputInfo}"
+                                      CanUserDeleteRows="True" ItemsSource="{Binding ListOuputInfoes}" AutoGenerateColumns="False" IsReadOnly="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Tên" Binding="{Binding Path=Object.DisplayName}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Số lượng" Binding="{Binding Path=Count}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Đơn vị tính" Binding="{Binding Object.Unit.DisplayName}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Đơn giá" Binding="{Binding InputInfo.OutputPrice}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </ScrollViewer>
+                    </DockPanel>
+                </GroupBox>
+            </materialDesign:Card>
+        </DockPanel>
+    </DockPanel>
+</UserControl>

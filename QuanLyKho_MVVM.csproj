@@ -139,36 +139,28 @@
     <Compile Include="UC\UCBar4Dialog.xaml.cs">
       <DependentUpon>UCBar4Dialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\UCInputCount.xaml.cs">
+    <Compile Include="Views\UCInputCount.xaml.cs">
       <DependentUpon>UCInputCount.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\BaseCommand.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\CustomerUCViewModel.cs" />
+    <Compile Include="ViewModels\UCCustomerViewModel.cs" />
     <Compile Include="ViewModels\ExportBillViewModel.cs" />
-    <Compile Include="ViewModels\InputUCStaffViewModel.cs" />
-    <Compile Include="ViewModels\InputUCViewModel.cs" />
+    <Compile Include="ViewModels\UCInputSfViewModel.cs" />
+    <Compile Include="ViewModels\UCInputViewModel.cs" />
     <Compile Include="ViewModels\LoadingViewModel.cs" />
-    <Compile Include="ViewModels\LoginUCViewModel.cs" />
+    <Compile Include="ViewModels\UCLoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\ObjectUCViewModel.cs" />
-    <Compile Include="ViewModels\ObjectViewModel.cs" />
-    <Compile Include="ViewModels\OutputBetaViewModel.cs" />
-    <Compile Include="ViewModels\OutputUCViewModel.cs" />
-    <Compile Include="ViewModels\OutputViewModel.cs" />
-    <Compile Include="ViewModels\SupplierUCViewModel.cs" />
-    <Compile Include="ViewModels\SupplierViewModel.cs" />
+    <Compile Include="ViewModels\UCObjectViewModel.cs" />
+    <Compile Include="ViewModels\UCOutputViewModel.cs" />
+    <Compile Include="ViewModels\UCSupplierViewModel.cs" />
     <Compile Include="ViewModels\UCInputCountViewModel.cs" />
-    <Compile Include="ViewModels\UnitUCViewModel.cs" />
-    <Compile Include="ViewModels\UnitViewModel.cs" />
+    <Compile Include="ViewModels\UCUnitViewModel.cs" />
     <Compile Include="ViewModels\UserAdminViewModel.cs" />
     <Compile Include="ViewModels\DefaultUserViewModel.cs" />
-    <Compile Include="ViewModels\CustomerViewModel.cs" />
-    <Compile Include="ViewModels\InputViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel_Old.cs" />
-    <Compile Include="Views\CustomerUCView.xaml.cs">
-      <DependentUpon>CustomerUCView.xaml</DependentUpon>
+    <Compile Include="Views\UCCustomerView.xaml.cs">
+      <DependentUpon>UCCustomerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DialogUC.xaml.cs">
       <DependentUpon>DialogUC.xaml</DependentUpon>
@@ -176,62 +168,38 @@
     <Compile Include="Views\ExportBillView.xaml.cs">
       <DependentUpon>ExportBillView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\InputUCStaffView.xaml.cs">
-      <DependentUpon>InputUCStaffView.xaml</DependentUpon>
+    <Compile Include="Views\UCInputSfView.xaml.cs">
+      <DependentUpon>UCInputSfView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\InputUCView.xaml.cs">
-      <DependentUpon>InputUCView.xaml</DependentUpon>
+    <Compile Include="Views\UCInputView.xaml.cs">
+      <DependentUpon>UCInputView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoadingView.xaml.cs">
       <DependentUpon>LoadingView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoginUCView.xaml.cs">
-      <DependentUpon>LoginUCView.xaml</DependentUpon>
+    <Compile Include="Views\UCLoginView.xaml.cs">
+      <DependentUpon>UCLoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ObjectUCView.xaml.cs">
-      <DependentUpon>ObjectUCView.xaml</DependentUpon>
+    <Compile Include="Views\UCObjectView.xaml.cs">
+      <DependentUpon>UCObjectView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ObjectView.xaml.cs">
-      <DependentUpon>ObjectView.xaml</DependentUpon>
+    <Compile Include="Views\UCOutputView.xaml.cs">
+      <DependentUpon>UCOutputView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OutputUCView.xaml.cs">
-      <DependentUpon>OutputUCView.xaml</DependentUpon>
+    <Compile Include="Views\UCSupplierView.xaml.cs">
+      <DependentUpon>UCSupplierView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OutputView.xaml.cs">
-      <DependentUpon>OutputView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SupplierUCView.xaml.cs">
-      <DependentUpon>SupplierUCView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SupplierView.xaml.cs">
-      <DependentUpon>SupplierView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TestExpander.xaml.cs">
-      <DependentUpon>TestExpander.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UnitUCView.xaml.cs">
-      <DependentUpon>UnitUCView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UnitView.xaml.cs">
-      <DependentUpon>UnitView.xaml</DependentUpon>
+    <Compile Include="Views\UCUnitView.xaml.cs">
+      <DependentUpon>UCUnitView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserAdminView.xaml.cs">
       <DependentUpon>UserAdminView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DefaultUserView.xaml.cs">
       <DependentUpon>DefaultUserView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CustomerView.xaml.cs">
-      <DependentUpon>CustomerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\InputView.xaml.cs">
-      <DependentUpon>InputView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginView.xaml.cs">
-      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow_Old.xaml.cs">
       <DependentUpon>MainWindow_Old.xaml</DependentUpon>
@@ -284,11 +252,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\UCInputCount.xaml">
+    <Page Include="Views\UCInputCount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CustomerUCView.xaml">
+    <Page Include="Views\UCCustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -300,11 +268,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\InputUCStaffView.xaml">
+    <Page Include="Views\UCInputSfView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\InputUCView.xaml">
+    <Page Include="Views\UCInputView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -312,7 +280,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LoginUCView.xaml">
+    <Page Include="Views\UCLoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -320,39 +288,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ObjectUCView.xaml">
+    <Page Include="Views\UCObjectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ObjectView.xaml">
+    <Page Include="Views\UCOutputView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\OutputUCView.xaml">
+    <Page Include="Views\UCSupplierView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\OutputView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SupplierUCView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SupplierView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TestExpander.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UnitUCView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UnitView.xaml">
+    <Page Include="Views\UCUnitView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -361,18 +309,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DefaultUserView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CustomerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\InputView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
