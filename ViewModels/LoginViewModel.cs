@@ -85,6 +85,7 @@ namespace QuanLyKho_MVVM.ViewModels
                 {
                     if (user != null)
                     {
+                        idRole = user.IdRole;
                         IsLogin = true;
                         window.Close();
                     }

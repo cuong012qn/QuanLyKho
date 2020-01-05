@@ -16,7 +16,6 @@ namespace QuanLyKho_MVVM.ViewModels
 {
     class UnitUCViewModel : BaseViewModel
     {
-        private BackgroundWorker bgWk;
         private LoadingView loadingview;
         private int _id;
         private string _displayName;

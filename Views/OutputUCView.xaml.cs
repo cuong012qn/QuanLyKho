@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,17 @@ namespace QuanLyKho_MVVM.Views
         public OutputUCView()
         {
             InitializeComponent();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if (Regex.IsMatch((sender as TextBox).Text, "^[0-9]*$")) e.Handled = true;
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (Regex.IsMatch((sender as TextBox).Text, "^[0-9]*$")) e.Handled = true;
         }
     }
 }

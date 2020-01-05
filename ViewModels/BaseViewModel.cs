@@ -14,6 +14,7 @@ namespace QuanLyKho_MVVM.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
+
     class RelayCommand<T> : ICommand
     {
         private readonly Predicate<T> _canExecute;

@@ -27,14 +27,15 @@
                         <DatePicker Width="150"></DatePicker>
                     </StackPanel>
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top">
-                        <DataGrid ItemsSource="{Binding ListInputInfo}" CanUserAddRows="False" CanUserSortColumns="True" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid ItemsSource="{Binding ListTonKho}" CanUserAddRows="False" CanUserSortColumns="True" AutoGenerateColumns="False" IsReadOnly="True">
                             <DataGrid.Columns>
+                                <DataGridTextColumn Header="STT" Binding="{Binding Path=STT}"></DataGridTextColumn>
                                 <DataGridTextColumn Header="Tên hàng hóa" Binding="{Binding Path=Object.DisplayName}"></DataGridTextColumn>
                                 <DataGridTextColumn Header="Số lượng" Binding="{Binding Count}"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Giá nhập" Binding="{Binding InputPrice}"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Giá bán" Binding="{Binding OutputPrice}"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Tình trạng" Binding="{Binding Status}"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Ngày bán" Binding="{Binding Input.DateInput}"></DataGridTextColumn>
+                                <!--<DataGridTextColumn Header="Giá nhập" Binding="{Binding InputPrice}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Giá bán" Binding="{Binding OutputPrice}"></DataGridTextColumn>-->
+                                <!--<DataGridTextColumn Header="Tình trạng" Binding="{Binding Status}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Ngày bán" Binding="{Binding Input.DateInput}"></DataGridTextColumn>-->
                             </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>

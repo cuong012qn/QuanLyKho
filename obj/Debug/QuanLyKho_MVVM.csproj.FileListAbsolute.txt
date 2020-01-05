@@ -19,8 +19,6 @@ F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\QuanLyKho_MVVM.csproj.GenerateRes
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\QuanLyKho_MVVM.csproj.CopyComplete
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\QuanLyKho_MVVM.exe
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\QuanLyKho_MVVM.pdb
-F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\MainView.g.cs
-F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\MainView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\ResourceDir\Resource.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\bin\Debug\Microsoft.Expression.Interactions.dll
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\bin\Debug\System.Windows.Interactivity.dll
@@ -76,10 +74,14 @@ F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\InputUCView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\InputUCView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\OutputUCView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\OutputUCView.baml
-F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\MainWindowBetaView.g.cs
-F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\MainWindowBetaView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\UC\UCInputCount.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\UC\UCInputCount.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\LoginUCView.g.cs
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\LoginUCView.baml
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\InputUCStaffView.g.cs
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\InputUCStaffView.baml
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\MainWindow_Old.g.cs
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\MainWindow_Old.baml
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\MainWindowView.g.cs
+F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\Views\MainWindowView.baml
 F:\WPF\QuanLyKho_MVVM\QuanLyKho_MVVM\obj\Debug\QuanLyKho_MVVM.csprojAssemblyReference.cache

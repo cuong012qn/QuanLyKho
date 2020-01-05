@@ -1,0 +1,161 @@
+﻿<Window x:Class="QuanLyKho_MVVM.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyKho_MVVM.Views"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:uc="clr-namespace:QuanLyKho_MVVM.UC"
+        mc:Ignorable="d"
+        Name="mainView"
+        FontSize="20"
+        Title="Màn hình chính" Height="700" Width="1100"
+        WindowStartupLocation="CenterScreen"
+        DataContext="{StaticResource MainVM}" AllowsTransparency="True"
+        WindowStyle="None" ResizeMode="NoResize">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
+                                   CommandParameter="{Binding ElementName=mainView}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <materialDesign:DialogHost Identifier="Root">
+        <DockPanel>
+            <uc:UCBar Tag="{Binding Title,ElementName=mainView}" DockPanel.Dock="Top"></uc:UCBar>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right" DockPanel.Dock="Top">
+                <TextBlock Margin="5" Text="{Binding DisplayName}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      ></TextBlock>
+                <Button Content="Thông tin" FontSize="20"
+                    Background="#FF81CAF3" BorderBrush="White"
+                    Margin="5" Height="50"
+                    Command="{Binding CommandChangeInfoUser}"></Button>
+            </StackPanel>
+            <materialDesign:Card HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" DockPanel.Dock="Top">
+                <GroupBox Header="Chức năng" Margin="5" 
+                  FontSize="20" Height="150" DockPanel.Dock="Top"
+                  materialDesign:ColorZoneAssist.Mode="PrimaryLight">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Height="75" Margin="2"
+                        Style="{StaticResource MaterialDesignRaisedLightButton}"
+                        Background="#FF81CAF3" BorderBrush="White"
+                        Command="{Binding InputCommand}"
+                            materialDesign:ButtonAssist.CornerRadius="5" 
+                            ToolTip="Nhập kho">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Import"  VerticalAlignment="Stretch"/>
+                                <TextBlock Text="Nhập kho" FontSize="20" />
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
+                        Background="#FF81CAF3" BorderBrush="White"
+                            Height="75" materialDesign:ButtonAssist.CornerRadius="5"
+                        Command="{Binding OutputCommand}"
+                            ToolTip="Xuất kho" Margin="2"
+                        Grid.Column="1" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Export"  VerticalAlignment="Stretch"/>
+                                <TextBlock Text="Xuất kho" FontSize="20" />
+                            </StackPanel>
+
+                        </Button>
+                        <Button Grid.Column="3" Height="75"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                        Background="#FF81CAF3" BorderBrush="White"
+                            Command="{Binding CustomerCommand}"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            ToolTip="Thông tin khách hàng" Margin="2" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="UserBox" Margin="-10 0 0 0"
+                                                 VerticalAlignment="Stretch" />
+                                <TextBlock Text="Khách hàng" 
+                                   TextWrapping="Wrap" FontSize="20"/>
+                            </StackPanel>
+
+                        </Button>
+                        <Button Grid.Column="2" Height="75"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                        Background="#FF81CAF3" BorderBrush="White"
+                            Command="{Binding UnitCommand}"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            ToolTip="Đơn vị" Margin="2" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="AngleAcute" VerticalAlignment="Stretch" />
+                                <TextBlock Text="Đơn vị" 
+                                   TextWrapping="Wrap" FontSize="20"/>
+                            </StackPanel>
+
+                        </Button>
+                        <Button Grid.Column="4" Height="75"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                        Background="#FF81CAF3" BorderBrush="White"
+                            Command="{Binding SuplierCommand}"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            ToolTip="Nhà cung cấp" Margin="2" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ImportExport" VerticalAlignment="Stretch" />
+                                <StackPanel>
+                                    <TextBlock Text="Nhà cung " 
+                                   TextWrapping="Wrap" FontSize="20"/>
+                                    <TextBlock Text="cấp" 
+                                   TextWrapping="Wrap" FontSize="20"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Button>
+                        <Button Grid.Column="5" Height="75"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                        Background="#FF81CAF3" BorderBrush="White"
+                            Command="{Binding ObjectCommand}"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            ToolTip="Khách hàng" Margin="2" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="BoxVariantClosed" VerticalAlignment="Stretch"/>
+                                <TextBlock Text="Mặt hàng" 
+                                   TextWrapping="Wrap" FontSize="20"/>
+                            </StackPanel>
+
+                        </Button>
+                    </Grid>
+                </GroupBox>
+            </materialDesign:Card>
+
+            <materialDesign:Card HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" DockPanel.Dock="Top">
+                <GroupBox Header="Thống kê" Margin="5"
+                      materialDesign:ColorZoneAssist.Mode="PrimaryLight">
+                    <DockPanel>
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="5">
+                            <TextBlock Margin="5" Text="Từ ngày" VerticalAlignment="Stretch"></TextBlock>
+                            <DatePicker Width="150"></DatePicker>
+                            <TextBlock Margin="5" Text="Đến ngày" VerticalAlignment="Stretch"></TextBlock>
+                            <DatePicker Width="150"></DatePicker>
+                        </StackPanel>
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top">
+                            <ListView Margin="5" ItemsSource="{Binding ListInputInfos, Mode=TwoWay}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Tên hàng hóa" DisplayMemberBinding="{Binding Object.DisplayName}"></GridViewColumn>
+                                        <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding Count}"></GridViewColumn>
+                                        <GridViewColumn Header="Giá nhập" DisplayMemberBinding="{Binding InputPrice}"></GridViewColumn>
+                                        <GridViewColumn Header="Giá bán" DisplayMemberBinding="{Binding OutputPrice}"></GridViewColumn>
+                                        <GridViewColumn Header="Tình trạng" DisplayMemberBinding="{Binding Status}"></GridViewColumn>
+                                        <GridViewColumn Header="Ngày bán" DisplayMemberBinding="{Binding Input.DateInput}"></GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
+                    </DockPanel>
+                </GroupBox>
+            </materialDesign:Card>
+        </DockPanel>
+    </materialDesign:DialogHost>
+</Window>
